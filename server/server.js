@@ -37,9 +37,23 @@ const newCompanyObj = () => ({
 
 //Create a route that returns a new user.
 
+app.get("/api/users/new", (req, res) => {
+    const newUser = newUserObj();
+    res.json(newUser);
+})
+
 //Create a route that returns a new company.
 
+app.get("/api/companies/new", (req, res) => {
+    const newCompany = newCompanyObj();
+    res.json(newCompany);
+})
+
 //Create a route that returns a new user and a new company.
+
+app.get("/api/user/company", (req, res) => {
+    res.json({user: newUserObj(), company: newCompanyObj()});
+})
 
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
